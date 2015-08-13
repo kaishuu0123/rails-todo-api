@@ -25,7 +25,7 @@ RSpec.describe "Todos", type: :request do
 
   describe "POST /api/v1/todos" do
     it "post Todo" do
-      post '/api/v1/todos', {title: "fugafuga"}.to_json,
+      post '/api/v1/todos', {title: "fugafuga", done: false}.to_json,
         {'CONTENT_TYPE' => "application/json"}
 
       expect(response).to have_http_status(201)
@@ -34,7 +34,7 @@ RSpec.describe "Todos", type: :request do
 
   describe "PUT /api/v1/todos/:id" do
     it "PUT Todo" do
-      put '/api/v1/todos/1', {title: "fugafuga"}.to_json,
+      put '/api/v1/todos/1', {title: "fugafuga", done: true}.to_json,
         {'CONTENT_TYPE' => "application/json"}
 
       expect(response).to have_http_status(200)

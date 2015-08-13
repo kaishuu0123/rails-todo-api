@@ -21,10 +21,13 @@ module TodoApp
           desc "Create a Todo"
           params do
             requires :title, type: String, desc: "Title of the Todo"
+            requires :done, type: Boolean, desc: "State of the Todo"
           end
           post do
+            logger.info(params)
             Todo.create({
-              title: params[:title]
+              title: params[:title],
+              done: params[:done]
             })
           end
 
@@ -32,12 +35,13 @@ module TodoApp
           params do
             requires :id, type: Integer, desc: "ID of the Todo"
             requires :title, type: String, desc: "Title of the Todo"
+            requires :done, type: Boolean, desc: "State of the Todo"
           end
           put ':id' do
             todo = Todo.find(params[:id])
             error!('404 Not Found', 404) unless todo
 
-            todo.update(title: params[:title])
+            todo.update(title: params[:title], done: params[:done])
           end
 
           desc "Delete a Todo"
