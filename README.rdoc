@@ -1,6 +1,6 @@
 == README
 
-https://circleci.com/gh/kaishuu0123/rails-todo-api.png
+http://circleci.com/gh/kaishuu0123/rails-todo-api.png
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
